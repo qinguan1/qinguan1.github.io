@@ -9,5 +9,5 @@
 [![stars](https://badgen.net/github/stars/fuzhengwei/fuzhengwei.github.io?icon=github&color=4ab8a1)](https://github.com/qinguan1/qinguan1.github.io) 
 [![forks](https://badgen.net/github/forks/fuzhengwei/fuzhengwei.github.io?icon=github&color=4ab8a1)](https://github.com/qinguan1/qinguan1.github.io) 
 
-[github](<https://github.com/qinguan1/qinguan1.github.io>)
+[Github](<https://github.com/qinguan1/qinguan1.github.io>)
 [开始阅读](README.md)
