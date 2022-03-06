@@ -2,8 +2,6 @@
 
 ![image-20200414114452792](https://gitee.com/yizhibuerdai/Imagetools/raw/master/images/image-20200414114452792.png)
 
-
-
 #### 1.**Java集合框架的基础接口有哪些？**
 
 Collection为集合层级的根接口。一个集合代表一组对象，这些对象即为它的元素。Java平台不提供这个接口任何直接的实现。
