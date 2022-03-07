@@ -276,7 +276,7 @@ Locale类用来根据语言环境来动态调整程序的输出。
 
 #### 18.Java中final、finally、finalize的区别与用法
 
-1. final是一个修饰符也是一个关键字。
+1. **final** 是一个修饰符也是一个关键字。
 
 - 被final修饰的类无法被继承
 - 对于一个final变量，如果是基本数据类型的变量，则其数值一旦在初始化之后便不能更改；
@@ -284,7 +284,7 @@ Locale类用来根据语言环境来动态调整程序的输出。
 - 被final修饰的方法将无法被重写，但*允许重载*
   注意：类的private方法会隐式地被指定为final方法。
 
-2. finally是一个关键字。
+2. **finally** 是一个关键字。
 
 - finally在异常处理时提供finally块来执行任何清除操作。不管有没有异常被抛出或者捕获，finally块都会执行，通常用于释放资源。
 - finally块正常情况下一定会被执行。但是有至少两个极端情况：
@@ -292,7 +292,7 @@ Locale类用来根据语言环境来动态调整程序的输出。
   如果在try块中jvm关机，例如system.exit(n)，则finally块也不会执行（都拔电源了，怎么执行）
 - finally块中如果有return语句，则会覆盖try或者catch中的return语句，导致二者无法return，所以强烈建议finally块中不要存在return关键字
 
-3. finalize()是Object类的protected方法，子类可以覆盖该方法以实现资源清理工作。
+3. **finalize()** 是Object类的protected方法，子类可以覆盖该方法以实现资源清理工作。
    ***GC在回收对象之前都会调用该方法***
    finalize()方法是存在很多问题的：
 
@@ -523,7 +523,7 @@ String 和 StringBuffer、StringBuilder 的区别在于 String 声明的是不�
 
 StringBuffer 和 StringBuilder 最大的区别在于，StringBuffer 是线程安全的，而 StringBuilder 是非线程安全的，但 StringBuilder 的性能却高于 StringBuffer，所以在单线程环境下推荐使用 StringBuilder，多线程环境下推荐使用 StringBuffer。
 
-#### 22.String str="a"与 String str=new String("a")一样吗？
+#### 22.String str = "a"与 String str=new String("a")一样吗？
 
 不一样，因为内存的分配方式不一样。
 
@@ -600,7 +600,7 @@ Java 序列化就是指将对象转换为字节序列的过程，反序列化是
 
 #### 29.什么情况需要Java序列化?
 
-当 Java 对象需要在网络上传输 或者 持久化存储到文件中时。
+当 Java 对象需要在网络上传输或者持久化存储到文件中时。
 
 #### 30.序列化的实现?
 
@@ -611,7 +611,7 @@ Java 序列化就是指将对象转换为字节序列的过程，反序列化是
 在字段面前加  transient 关键字，例如:
 
 ```java
-  transient private String phone;//不参与序列化
+  transient private String phone; //不参与序列化
 ```
 
 #### 32.**Java泛型和类型擦除？**
@@ -620,22 +620,18 @@ Java 序列化就是指将对象转换为字节序列的过程，反序列化是
 
 类型擦除：java编译器生成的字节码不包含泛型信息，所以在编译时擦除：1.泛型用最顶级父类替换；2.移除。
 
+```java
+        List<String> l1 = new ArrayList<>();
+        List<Integer> l2 = new ArrayList<>();
+        System.out.println(l1.getClass() == l2.getClass());
+```
+```tex
+输出结果：true
+```
+
 #### 33. 如何将字符串反转？
 
 使用 StringBuilder 或者 stringBuffer 的 reverse() 方法。
-
-示例代码：
-
-```java
-// StringBuffer reverse
-StringBuffer stringBuffer = new StringBuffer();
-stringBuffer. append("abcdefg");
-System. out. println(stringBuffer. reverse()); // gfedcba
-// StringBuilder reverse
-StringBuilder stringBuilder = new StringBuilder();
-stringBuilder. append("abcdefg");
-System. out. println(stringBuilder. reverse()); // gfedcba
-```
 
 #### 34.String 类的常用方法都有那些？
 
@@ -655,18 +651,6 @@ System. out. println(stringBuilder. reverse()); // gfedcba
 
 不需要，抽象类不一定非要有抽象方法。
 
-示例代码：
-
-```java
-abstract class Cat {
-    public static void sayHi() {
-        System. out. println("hi~");
-    }
-}
-```
-
-上面代码，抽象类并没有抽象方法但完全可以正常运行。
-
 #### 36. 普通类和抽象类有哪些区别？
 
 - 普通类不能包含抽象方法，抽象类可以包含抽象方法。
@@ -679,7 +663,7 @@ abstract class Cat {
 - 实现数量：类可以实现很多个接口；但是只能继承一个抽象类。
 - 访问修饰符：接口中的方法默认使用 public 修饰；抽象类中的方法可以是任意访问修饰符。
 
-#### 38.以下代码中,s5`==`s2返回值是什么?
+#### 38.以下代码中,s5==s2返回值是什么?
 
 ```java
 String s1="ab";
@@ -689,18 +673,17 @@ String s4="b";
 String s5=s3+s4;
 ```
 
-返回false.在编译过程中,编译器会将s2直接优化为"ab",将其放置在常量池当中;而s5则是被创建在堆区,相当于s5=new String("ab");
+返回false.在编译过程中,编译器会将s2直接优化为"ab",将其放置在常量池当中;而s5则是被创建在堆区,相当于：s5 = new String("ab");
 
 #### 39.String  中的 intern()
 
 Stirng中的intern()是个Native方法,它会首先从常量池中查找是否存在该常量值的字符串,若不存在则先在常量池中创建,否则直接返回常量池已经存在的字符串的引用. 比如
 
 ```java
- String s1="aa";
- String s2=s1.intern();
- System.out.print(s1==s2);
+ String s1 = "aa";
+ String s2 = s1.intern();
+ System.out.print(s1 == s2);
 ```
-
 
 上述代码将返回true.因为在"aa"会在编译阶段确定下来,并放置字符串常量池中,因此最终s1和s2引用的是同一个字符串常量对象。
 
@@ -710,11 +693,11 @@ Stirng中的intern()是个Native方法,它会首先从常量池中查找是否�
 
 编译器常量虽然能够提升性能,但是也存在一定问题:你使用了一个内部的或第三方库中的公有编译时常量,但是这个值后面被其他人改变了,但是你的客户端没有重新编译,这意味着你仍然在使用被修改之前的常量值.
 
-#### 41.3*0.1`==`0.3返回值是什么
+#### 41.3*0.1 == 0.3返回值是什么
 
 false,因为有些浮点数不能完全精确的表示出来.
 
-#### 42.a=a+b与a+=b有什么区别吗?
+#### 42.a = a + b与a += b有什么区别吗?
 
 +=操作符会进行隐式自动类型转换,此处a+=b隐式的将加操作的结果类型强制转换为持有结果的类型,而a=a+b则不会自动进行类型转换.如：
 
@@ -744,19 +727,16 @@ static关键字还有一个比较关键的作用就是 **用来形成静态代�
 
 为什么说static块可以用来优化程序性能，是因为它的特性:只会在类加载的时候执行一次。因此，很多时候会将一些只需要进行一次的初始化操作都放在static代码块中进行。
 
-
-
 #### 45.static的独特之处
 
-1、被static修饰的变量或者方法是独立于该类的任何对象，也就是说，这些变量和方法 **不属于任何一个实例对象，而是被类的实例对象所共享** 。
+>1. 被static修饰的变量或者方法是独立于该类的任何对象，也就是说，这些变量和方法 **不属于任何一个实例对象，而是被类的实例对象所共享** 。
+怎么理解 "被类的实例对象所共享" 这句话呢？就是说，一个类的静态成员，它是属于大伙的【大伙指的是这个类的多个对象实例，我们都知道一个类可以创建多个实例！】，所有的类对象共享的，不像成员变量是自个的【自个指的是这个类的单个实例对象】
 
-怎么理解 "被类的实例对象所共享" 这句话呢？就是说，一个类的静态成员，它是属于大伙的【大伙指的是这个类的多个对象实例，我们都知道一个类可以创建多个实例！】，所有的类对象共享的，不像成员变量是自个的【自个指的是这个类的单个实例对象】…我觉得我已经讲的很通俗了，你明白了咩？
+>2. 在该类被第一次加载的时候，就会去加载被static修饰的部分，而且只在类第一次使用时加载并进行初始化，注意这是第一次用就要初始化，后面根据需要是可以再次赋值的。
 
-2、在该类被第一次加载的时候，就会去加载被static修饰的部分，而且只在类第一次使用时加载并进行初始化，注意这是第一次用就要初始化，后面根据需要是可以再次赋值的。
+>3. static变量值在类加载的时候分配空间，以后创建类对象的时候不会重新分配。赋值的话，是可以任意赋值的！
 
-3、static变量值在类加载的时候分配空间，以后创建类对象的时候不会重新分配。赋值的话，是可以任意赋值的！
-
-4、被static修饰的变量或者方法是优先于对象存在的，也就是说当一个类加载完毕之后，即便没有创建对象，也可以去访问。
+>4. 被static修饰的变量或者方法是优先于对象存在的，也就是说当一个类加载完毕之后，即便没有创建对象，也可以去访问。
 
 #### 46.static应用场景
 
@@ -764,15 +744,11 @@ static关键字还有一个比较关键的作用就是 **用来形成静态代�
 
 因此比较常见的static应用场景有：
 
-1、修饰成员变量 
-
-2、修饰成员方法
-
- 3、静态代码块
-
- 4、修饰类【只能修饰内部类也就是静态内部类】 
-
-5、静态导包
+>1. 修饰成员变量 
+>2. 修饰成员方法
+>3. 静态代码块
+>4. 修饰类【只能修饰内部类也就是静态内部类】 
+>5. 静态导包
 
 #### 47.break ,continue ,return 的区别及作用
 
@@ -844,9 +820,7 @@ static变量也称作静态变量，静态变量和非静态变量的区别是�
 
 由于静态方法可以不通过对象进行调用，因此在静态方法里，不能调用其他非静态变量，也不可以访问非静态变量成员。
 
-
-
-#### 参考:
+#### 参考资料:
 
 https://blog.csdn.net/qq_41701956/article/details/86773940
 
