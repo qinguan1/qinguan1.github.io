@@ -56,10 +56,9 @@
 
 ![image-20200413145454097](https://gitee.com/yizhibuerdai/Imagetools/raw/master/images/image-20200413145454097.png)
 
->**小贴士：** :boolean类型占了单独使用是4个字节，在数组中又是1个字节
+>**小贴士：** boolean类型占了单独使用是4个字节，在数组中又是1个字节
 基本类型所占的存储空间是不变的。这种不变性也是Java具有可移植性的原因之一。
-基本类型放在栈中，直接存储值。
-所有数值类型都有正负号，没有无符号的数值类型。
+基本类型放在栈中，直接存储值。所有数值类型都有正负号，没有无符号的数值类型。
 
 **`为什么需要封装类？`**
 因为泛型类包括预定义的集合，使用的参数都是对象类型，无法直接使用基本数据类型，所以Java又提供了这些基本类型的封装类。
@@ -94,7 +93,6 @@ String, BitSet, Date, 和File都对equals方法进行了重写，对两个String
 >**小贴士：** 
 ***阿里巴巴Java开发规范有一句话：只要重写 equals，就必须重写 hashCode。具体可以参考JDK源码的抽象集合类：AbstractList。***
 
-
 ```java
 public class EqualsTest {
     public static void main(String[] args) {
@@ -121,7 +119,6 @@ Using equals method : true
 false
 Using equals method :true
 ```
-
 #### 8.Object有哪些公用方法
 
 **Object是所有类的父类，任何类都默认继承Object**
@@ -156,7 +153,7 @@ Using equals method :true
 
 #### 10.while循环和do...while循环有什么不同？
 
-while结构在循环的开始判断下一个迭代是否应该继续。do...while结构在循环的结尾来判断是否将继续下一轮迭代。do结构至少会执行一次循环体。
+while结构在循环的开始判断下一个迭代是否应该继续。do...while结构在循环的结尾来判断是否将继续下一轮迭代。do...while结构至少会执行一次循环体。
 
 #### 11.char型变量中能不能存储一个中文汉字?为什么？
 
@@ -166,7 +163,8 @@ while结构在循环的开始判断下一个迭代是否应该继续。do...whil
 
 ![image-20200413174229242](https://gitee.com/yizhibuerdai/Imagetools/raw/master/images/image-20200413174229242.png)
 
- Tips:不写默认default
+ >**小贴士：** 
+ ***不写的话默认的访问修饰符是default***
 
 #### 13.**float f=3.4;是否正确？**
 
@@ -181,12 +179,11 @@ while结构在循环的开始判断下一个迭代是否应该继续。do...whil
 1. &：(1)按位与；(2)逻辑与。
 
  按位与: 0 & 1 = 0 ; 0 & 0 = 0; 1 & 1 = 1
+ 逻辑与: a == b &  b \== c （即使a==b已经是 false了，程序还会继续判断b是否等于c)
 
- 逻辑与: a == b &  b ==c （即使a==b已经是 false了，程序还会继续判断b是否等于c)
+2. &&: 短路与
 
-2.&&: 短路与
-
-​         a== b && b== c （当a==b 为false则不会继续判断b是否等与c)
+a== b && b== c （当a==b 为false则不会继续判断b是否等与c)
 
 比如判断某对象中的属性是否等于某值，则必须用&&,否则会出现空指针问题。
 
@@ -262,8 +259,6 @@ false
     }
 ```
 
- 
-
 ```Java
  public static Integer valueOf(int i) {
     assert IntegerCache.high >= 127;
@@ -281,8 +276,7 @@ Locale类用来根据语言环境来动态调整程序的输出。
 
 #### 18.Java中final、finally、finalize的区别与用法
 
-1. final
-   final是一个修饰符也是一个关键字。
+1. final是一个修饰符也是一个关键字。
 
 - 被final修饰的类无法被继承
 - 对于一个final变量，如果是基本数据类型的变量，则其数值一旦在初始化之后便不能更改；
@@ -290,8 +284,7 @@ Locale类用来根据语言环境来动态调整程序的输出。
 - 被final修饰的方法将无法被重写，但*允许重载*
   注意：类的private方法会隐式地被指定为final方法。
 
-2. finally
-   finally是一个关键字。
+2. finally是一个关键字。
 
 - finally在异常处理时提供finally块来执行任何清除操作。不管有没有异常被抛出或者捕获，finally块都会执行，通常用于释放资源。
 - finally块正常情况下一定会被执行。但是有至少两个极端情况：
@@ -299,9 +292,8 @@ Locale类用来根据语言环境来动态调整程序的输出。
   如果在try块中jvm关机，例如system.exit(n)，则finally块也不会执行（都拔电源了，怎么执行）
 - finally块中如果有return语句，则会覆盖try或者catch中的return语句，导致二者无法return，所以强烈建议finally块中不要存在return关键字
 
-3. finalize
-   finalize()是Object类的protected方法，子类可以覆盖该方法以实现资源清理工作。
-   *GC在回收对象之前都会调用该方法*
+3. finalize()是Object类的protected方法，子类可以覆盖该方法以实现资源清理工作。
+   ***GC在回收对象之前都会调用该方法***
    finalize()方法是存在很多问题的：
 
 - java语言规范并不保证finalize方法会被及时地执行，更根本不会保证它们一定会被执行
@@ -313,10 +305,9 @@ Locale类用来根据语言环境来动态调整程序的输出。
 
 下边从两个角度介绍了他们的区别：一个是性能，一个是可靠性。他们之间的主要区别也基本体现在这里。
 
-1.equals()既然已经能实现对比的功能了，为什么还要hashCode()呢？
+>1. equals()既然已经能实现对比的功能了，为什么还要hashCode()呢？
 因为重写的equals（）里一般比较的比较全面比较复杂，这样效率就比较低，而利用hashCode()进行对比，则只要生成一个hash值进行比较就可以了，效率很高。
-
-2.hashCode()既然效率这么高为什么还要equals()呢？
+>2. hashCode()既然效率这么高为什么还要equals()呢？
 因为hashCode()并不是完全可靠，有时候不同的对象他们生成的hashcode也会一样（生成hash值得公式可能存在的问题），所以hashCode()只能说是大部分时候可靠，并不是绝对可靠，所以我们可以得出（PS：以下两条结论是重点，很多人面试的时候都说不出来）：
 
 equals()相等的两个对象他们的hashCode()肯定相等，也就是用equals()对比是绝对可靠的。
@@ -355,7 +346,7 @@ HashMap获取一个对象是比较key的hashCode相等和equals为true。
 
 #### 20.深拷贝和浅拷贝的区别是什么?
 
-浅拷贝
+**浅拷贝**
 
 **（1）、定义**
 
@@ -434,7 +425,7 @@ Games
 
 ![image-20200413210910649](https://gitee.com/yizhibuerdai/Imagetools/raw/master/images/image-20200413210910649.png)
 
-深拷贝
+**深拷贝**
 
 **（1）、定义**
 
@@ -508,7 +499,7 @@ class Student3 implements Cloneable {
 
 输出结果：
 
-```sqlite
+```tex
 拷贝后
 edgar
 18
@@ -548,11 +539,11 @@ String str="a"; -> 常量池      String str=new String("a") -> 堆内存
 
 ​    抽象方法将来是要被重写的，而静态方法是不能重写的，所以这个是错误的。
 
-  (2)是否可以从一个静态（static）方法内部发出对非静态方法的调用？
+(2)是否可以从一个静态（static）方法内部发出对非静态方法的调用？
 
 ​    不可以，静态方法只能访问静态成员，非静态方法的调用要先创建对象。 
 
-   (3) static 可否用来修饰局部变量？ 
+(3) static 可否用来修饰局部变量？ 
 
 ​    static 不允许用来修饰局部变量 
 
