@@ -167,11 +167,13 @@ stop()方法，suspend()以及resume()都是过期作废方法，使用它们结
 
 大多数停止一个线程的操作使用Thread.interrupt()等于说给线程打一个停止的标记, 此方法不回去终止一个正在运行的线程，需要加入一个判断才能可以完成线程的停止。
 
-#### 17.interrupted 和 isInterrupted
+#### 17.interrupt，interrupted 和 isInterrupted
 
-interrupted :  判断当前线程是否已经中断,会清除状态。
+interrupt：为当前线程设置一个中断标志，当前线程依旧可以继续运行
 
-isInterrupted ：判断线程是否已经中断，不会清除状态。
+interrupted:  静态方法，判断当前线程是否已经中断,会重置当前线程的中断状态
+
+isInterrupted：实例方法，判断线程是否已经中断，不会重置当前线程的中断状态
 
 #### 18.yield
 
