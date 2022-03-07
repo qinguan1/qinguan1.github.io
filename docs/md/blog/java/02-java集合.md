@@ -1,5 +1,11 @@
 ## java集合
 
+作者：小路哥
+<br/>博客：[https://bugstack.cn](https://bugstack.cn)
+<br/>原文：[https://mp.weixin.qq.com/s/ckbu4ej4P2fEA8D_5cNUpw](https://mp.weixin.qq.com/s/ckbu4ej4P2fEA8D_5cNUpw)
+
+> 故不积跬步，无以至千里；不积小流，无以成江海！🌻
+
 ![image-20200414114452792](https://gitee.com/yizhibuerdai/Imagetools/raw/master/images/image-20200414114452792.png)
 
 #### 1.**Java集合框架的基础接口有哪些？**
