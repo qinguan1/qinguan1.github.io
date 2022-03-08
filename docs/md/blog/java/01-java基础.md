@@ -170,6 +170,17 @@ while结构在循环的开始判断下一个迭代是否应该继续。do...whil
 
 ![image-20200413174229242](https://gitee.com/yizhibuerdai/Imagetools/raw/master/images/image-20200413174229242.png)
 
+<font size=5>
+
+| 作用域      | 当前类 | 同一package     | 子孙类|其他package|
+| :---:        |    :----:   |          :---: |:---:|:---:|
+| public        | √       |   √   |√    |   √  |
+| protected    | √       |   √   |√    |   ×  |
+| default      | √       |   √   |  ×    |   ×  |
+| private      | √       |   ×   |  ×    |   ×  |
+
+</font>
+
  >**小贴士：** 
  ***不写的话默认的访问修饰符是default***
 
@@ -286,9 +297,9 @@ Locale类用来根据语言环境来动态调整程序的输出。
 1. **final** 是一个修饰符也是一个关键字。
 
 - 被final修饰的类无法被继承
-- 对于一个final变量，如果是基本数据类型的变量，则其数值一旦在初始化之后便不能更改；
-  如果是引用类型的变量，则在对其初始化之后便不能再让其指向另一个对象。但是它*指向的对象的内容是可变的*。
-- 被final修饰的方法将无法被重写，但*允许重载*
+- 对于一个final变量，如果是基本数据类型的变量，则其数值一旦在初始化之后便不能更改
+  如果是引用类型的变量，则在对其初始化之后便不能再让其指向另一个对象。但是它**指向的对象的内容是可变的**
+- 被final修饰的方法将无法被重写，但**允许重载**
   注意：类的private方法会隐式地被指定为final方法。
 
 2. **finally** 是一个关键字。
@@ -430,7 +441,7 @@ Games
 
 结果分析： 两个引用student1和student2指向不同的两个对象，但是两个引用student1和student2中的两个teacher引用指向的是同一个对象，所以说明是浅拷贝。
 
-![image-20200413210910649](https://gitee.com/yizhibuerdai/Imagetools/raw/master/images/image-20200413210910649.png)
+![blog-image-20200413210910649.png](/qinguan1.github.io/docs/assets/img/qinguan/blog-image-20200413210910649.png)
 
 **深拷贝**
 
