@@ -72,7 +72,7 @@ HashSet 是基于 HashMap 实现的，HashSet 底层使用 HashMap 来保存所�
 
 - 增加和删除效率：在非首尾的增加和删除操作，LinkedList 要比 ArrayList 效率要高，因为 ArrayList 增删操作要影响数组内的其他数据的下标。
 
-  综合来说，在需要频繁读取集合中的元素时，更推荐使用 ArrayList，而在插入和删除操作较多时，更推荐使用 LinkedList。\
+  综合来说，在需要频繁读取集合中的元素时，更推荐使用 ArrayList，而在插入和删除操作较多时，更推荐使用 LinkedList。
   
   >**小贴士：** 
   >1. ArrayList 如果使用无参构造器初始化，则集合的初始容量为10，元素放满后，集合容量扩容1.5倍
