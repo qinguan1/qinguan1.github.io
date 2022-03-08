@@ -441,7 +441,7 @@ Games
 
 结果分析： 两个引用student1和student2指向不同的两个对象，但是两个引用student1和student2中的两个teacher引用指向的是同一个对象，所以说明是浅拷贝。
 
-![blog-image-20200413210910649.png](https://img-blog.csdnimg.cn/1851bd0e40094772a0fc0e369a6a67c0.png)
+![blog-image-20200413210910649.png](https://raw.githubusercontent.com/qinguan1/qinguan1.github.io/main/docs/assets/img/qinguan/blog-image-20200413210910649.png)
 
 **深拷贝**
 
@@ -531,7 +531,8 @@ riemann
 结果分析：
 两个引用student1和student2指向不同的两个对象，两个引用student1和student2中的两个teacher引用指向的是两个对象，但对teacher对象的修改只能影响student1对象,所以说是深拷贝。
 
-![blog-image-20200413211228832](https://img-blog.csdnimg.cn/af71756b2d1149198753c5be3f4babb3.png)
+![blog-image-20200413211228832](https://raw.githubusercontent.com/qinguan1/qinguan1.github.io/main/docs/assets/img/qinguan/blog-image-20200413211228832.png)
+
 
 #### 21.Java 中操作字符串都有哪些类？它们之间有什么区别？
 
