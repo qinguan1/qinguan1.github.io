@@ -17,11 +17,9 @@
 
 #### 3.线程的实现方式?
 
-1.继承Thread类
-
-2.实现Runnable接口
-
-3.使用Callable和Future
+>1. 继承Thread类
+>2. 实现Runnable接口
+>3. 使用Callable和Future
 
 #### 4.**Thread 类中的start() 和 run() 方法有什么区别**?
 
