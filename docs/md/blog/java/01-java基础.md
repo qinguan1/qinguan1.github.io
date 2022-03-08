@@ -167,8 +167,6 @@ while结构在循环的开始判断下一个迭代是否应该继续。do...whil
 
 #### 12.public，private，protected的区别，继承方法与访问权限
 
-![image-20200413174229242](https://gitee.com/yizhibuerdai/Imagetools/raw/master/images/image-20200413174229242.png)
-
 <font size=5>
 
 | 作用域      | 当前类 | 同一package     | 子孙类|其他package|
