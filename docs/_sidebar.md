@@ -2,9 +2,10 @@
 - :memo: 目录
    - 第1章：java相关
    
-       - [第1节：Java基础](/md/blog/java/01-java基础.md)
-       - [第2节：Java集合](/md/blog/java/02-java集合.md)
-       - [第3节：Java多线程和锁相关](/md/blog/java/03-java多线程和锁相关.md)
+       - [第1节：Java基础](/md/blog/java/1-java基础.md)
+       - [第2节：Java集合](/md/blog/java/2-java集合.md)
+       - [第3节：java集合Map专题](/md/blog/java/2.1-java集合Map专题)
+       - [第4节：Java多线程和锁相关](/md/blog/java/3-java多线程和锁相关.md)
    
    - 第2章：基础功能
    
