@@ -1,6 +1,6 @@
 ![logo](_media/logo.png)
 
-# 小小
+# qinguan
 
 ## 个人内容博客
 
