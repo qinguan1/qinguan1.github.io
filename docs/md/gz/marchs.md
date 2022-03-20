@@ -106,8 +106,6 @@ a:b=c:d=e:f=.......m:k
 
 **a + b >=2 $\sqrt{ab}$, a、b > 0,当且仅当 a=b 时取得等号**
 
-**a + b +c >=$\sqrt[3]{abc}$，当且仅当 a=b 时取得等号**
-
 **a² + b² >=2ab, a、b ≠ 0,当且仅当 a=b 时取得等号**
 
 讲解：  https://www.jinzhun.net/article/content/202001/219/1.html
