@@ -6,7 +6,7 @@
        - [第2节：Java集合](/md/blog/java/2-java集合.md)
        - [第3节：java集合Map专题](/md/blog/java/2.1-java集合Map专题)
        - [第4节：Java多线程和锁相关](/md/blog/java/3-java多线程和锁相关.md)
-       - [第4节：Java锁专题](/md/blog/java/3.1-java锁专题.md)
+       - [第5节：Java锁专题](/md/blog/java/3.1-java锁专题.md)
 
 
    - 第2章：网络
