@@ -34,15 +34,19 @@ Kafka 所谓副本（Replica），本质就是**一个只能追加写消息的�
 
 在实际生产环境中，每台 Broker 实例都可能保存有各个主题下不同分区的不同副本，因此，单个 Broker 实例上存有成百上千个副本的现象是非常正常的。
 
-#### 1.3 副本集合
+#### 1.3 副本的重要概念
+对于副本而言，还有两个概念：本地副本（ Local Replica ）和远程副本（ Remote Replica) , 本地副本是指对应的 Log 分配在当前的 broker 节点上，远程副本是指对应的 Log 分配在其他的 broker 节点上。
 
-##### 1.3.1 AR(Assigned Replicas)
+
+#### 1.4 副本集合
+
+##### 1.4.1 AR(Assigned Replicas)
 分区中的所有副本统称为 AR (Assigned Replicas)
-##### 1.3.1 ISR(in-sync-replica set)
+##### 1.4.1 ISR(in-sync-replica set)
 与 Leader 副本保持一定程度同步的副本（包括 Leader 副本在内）组成 ISR (In Sync Replicas)。
 至于同步的程度是由 replica.lag.time.max.ms 配置决定的，超过这个时间都没有跟leader同步过的一次的副本会被**移出** ISR 列表，移入 OSR 列表)
 
-##### 1.3.3 OSR(Out-of-Sync Replicas)
+##### 1.4.2 OSR(Out-of-Sync Replicas)
 数据同步严重滞后的副本组成OSR（网络原因造成的等等），如果副本数为1或者副本同步进度差不多，那么这个可以为空。
 如果该 Follower 副本的 LEO 后续追赶上 Leader 副本的HW，则其有资格进入 ISR 列表，会被定时任务移入 ISR 列表。
 

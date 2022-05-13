@@ -15,10 +15,10 @@
        - [第4节：配置窗体和侧边栏窗体的使用](/md/idea-plugin/2021-11-03-第二节：配置窗体和侧边栏窗体的使用.md)
        - [第5节：开发工具栏和Tab页，展示股票行情和K线](/md/idea-plugin/2021-11-18-第三节：开发工具栏和Tab页展示股票行情和K线.md)
    
-   - 第3章：基建设计
+   - 第3章：Kafka
    
-       - [第6节：扩展创建工程向导步骤，开发DDD脚手架](/md/idea-plugin/2021-11-24-第四节：扩展创建工程向导步骤开发DDD脚手架.md)
-       - [第7节：IDEA工程右键菜单，自动生成ORM代码](/md/idea-plugin/2021-12-08-第五节：IDEA工程右键菜单自动生成ORM代码.md)
+       - [第1节：Kafka](/md/blog/kafka/1-kafka.md)
+       - [第2节：Kafka副本机制](/md/blog/kafka/kafka副本机制.md)
        - [第8节：选定对象批量织入“x.set(y.get)”代码，自动生成vo2dto](/md/idea-plugin/2021-12-14-第六节：以织入代码的方式自动处理vo2dto.md)
    
    - 第4章：辅助工具
