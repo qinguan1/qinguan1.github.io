@@ -64,6 +64,9 @@ HW定义了消息的可见性，即标识Partition中的哪些消息是可以被
 ### 二、Leader Epoch 机制
 
 ### 2.1 概述
+
+在 0.11.0.0 版本之前， Kafka使用的是基于HW的同步机制，但这样有可能出现数据丢失或 Leader 副本和 Follower 副本数据不一致的问题。
+
 Kakfa引入Leader Epoch后，Follower就不再参考HW，而是根据Leader Epoch信息来截断Leader中不存在的消息。这种机制可以弥补基于HW的副本同步机制的不足，Leader Epoch由两部分组成：
 
 - Epoch：一个单调增加的版本号。每当Leader副本发生变更时，都会增加该版本号。Epoch值较小的Leader被认为是过期Leader，不能再行使Leader的权力；
