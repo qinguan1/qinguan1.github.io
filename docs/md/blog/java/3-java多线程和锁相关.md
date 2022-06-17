@@ -202,7 +202,6 @@ public class XKThread extends Thread {
         XKThread xkThread = new XKThread();
         xkThread.start();
     }
-
 }
 ```
 
