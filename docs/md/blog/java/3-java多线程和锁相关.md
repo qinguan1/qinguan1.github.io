@@ -1047,6 +1047,11 @@ LinkedBlockingQueue作为线程池工作队列（默认容量Integer.MAX_VALUE)�
 
 >4. 运行中的FixedThreadPool(未执行shundown或shundownNow))则不会调用拒绝策略。
 
+
+![线程池复用原理流程图](https://raw.githubusercontent.com/qinguan1/qinguan1.github.io/main/docs/assets/img/qinguan/线程池复用原理流程图.png)
+
+
+
 >5. **由于任务可以不停的加到队列，当任务越来越多时很容易造成OOM**
 
 #### 99.SingleThreadExecutor
