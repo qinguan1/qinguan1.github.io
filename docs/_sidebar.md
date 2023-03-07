@@ -23,7 +23,7 @@
        - [第2节：Kafka副本机制](/md/blog/kafka/kafka副本机制.md)
        - [第8节：选定对象批量织入“x.set(y.get)”代码，自动生成vo2dto](/md/idea-plugin/2021-12-14-第六节：以织入代码的方式自动处理vo2dto.md)
    
-   - 第4章：辅助工具
+   - 第4章：spring security 
        
        - [第9节：通过Inspection机制，对静态代码安全审查](/md/idea-plugin/2021-12-22-第7节：通过Inspection机制为静态代码安全审查.md)
        - [第10节：在插件中引入探针，基于字节码插桩获取执行SQL](/md/idea-plugin/2022-01-17-第8节：在插件中引入探针基于字节码插桩获取执行SQL.md)

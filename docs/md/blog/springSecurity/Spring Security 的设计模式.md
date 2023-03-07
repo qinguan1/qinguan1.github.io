@@ -13,7 +13,6 @@ ProviderManager.authenticate
 👇
 provider.authenticate
 
-
 ### 1. 模板方法模式
 
 **简述模板方法：**
