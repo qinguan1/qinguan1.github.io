@@ -21,6 +21,16 @@
 
 ## 有哪些垃圾回收算法
 
+标记清除
+![gc-标记清除](https://raw.githubusercontent.com/qinguan1/qinguan1.github.io/main/docs/assets/img/qinguan/gc-标记清除.png)
+
+标记整理
+![gc-标记整理](https://raw.githubusercontent.com/qinguan1/qinguan1.github.io/main/docs/assets/img/qinguan/gc-标记整理.png)
+
+复制
+![gc-复制](https://raw.githubusercontent.com/qinguan1/qinguan1.github.io/main/docs/assets/img/qinguan/gc-复制.png)
+
+
 ## 有哪些垃圾收集器
 
 
