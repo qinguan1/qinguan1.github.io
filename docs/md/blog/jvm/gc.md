@@ -67,9 +67,28 @@
 
 如果说收集算法是内存回收的方法论，那么垃圾收集器就是内存回收的具体实现。
 
-### serial
+### Serial收集器(-XX:+UseSerialGC -XX:+UseSerialOldGC)
+Serial（串行）收集器是最基本、历史最悠久的垃圾收集器了。大家看名字就知道这个收集器是一个单线程收集器了。它的 `单线程`的意义不仅仅意味着它只会使用一条垃圾收集线程去完成垃圾收集工作，更重要的是它在进行垃圾收集工作的时候必须**暂停其他所有的工作线程**（ "Stop The World" ），直到它收集结束。
+算法策略：`新生代采用复制算法，老年代采用标记-整理算法`
 
-### 
+### Parallel Scavenge收集器(-XX:+UseParallelGC(年轻代),-XX:+UseParallelOldGC(老年代))
+Parallel收集器其实就是Serial收集器的多线程版本，除了使用多线程进行垃圾收集外，其余行为（控制参数、收集算法、回收策略等等）和Serial收集器类似。默认的收集线程数跟cpu核数相同，当然也可以用参数(-XX:ParallelGCThreads)指定收集线程数，但是一般不推荐修改。
+Parallel Scavenge收集器关注点是吞吐量（高效率的利用CPU）。CMS等垃圾收集器的关注点更多的是用户线程的停顿时间（提高用户体验）。所谓吞吐量就是CPU中用于运行用户代码的时间与CPU总消耗时间的比值。 Parallel Scavenge收集器提供了很多参数供用户找到最合适的停顿时间或最大吞吐量，如果对于收集器运作不太了解的话，可以选择把内存管理优化交给虚拟机去完成也是一个不错的选择。
+算法策略：`新生代采用复制算法，老年代采用标记-整理算法`
+
+
+Parallel Old收集器是Parallel Scavenge收集器的老年代版本。使用多线程和“标记-整理”算法。在注重吞吐量以及CPU资源的场合，都可以优先考虑 Parallel Scavenge收集器和Parallel Old收集器(JDK8默认的新生代和老年代收集器)。
+
+
+
+### ParNew收集器(-XX:+UseParNewGC)
+ParNew收集器其实跟Parallel收集器很类似，区别主要在于它可以和CMS收集器配合使用。
+算法策略：`新生代采用复制算法，老年代采用标记-整理算法`
+
+### CMS收集器(-XX:+UseConcMarkSweepGC(old))
+CMS（Concurrent Mark Sweep）收集器是一种以获取`最短回收停顿时间`为目标的收集器。它非常符合在注重用户体验的应用上使用，它是HotSpot虚拟机第一款真正意义上的`并发收集器`，它第一次实现了让垃圾收集线程与用户线程（基本上）同时工作。
+
+
 
 ### 常见的垃圾回收器的组合
 ![常见的垃圾回收器的组合](https://raw.githubusercontent.com/qinguan1/qinguan1.github.io/main/docs/assets/img/qinguan/常见的垃圾回收器的组合.png)
