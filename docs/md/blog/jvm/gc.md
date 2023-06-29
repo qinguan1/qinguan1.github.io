@@ -61,10 +61,15 @@
 
 ![JVM堆模型](https://raw.githubusercontent.com/qinguan1/qinguan1.github.io/main/docs/assets/img/qinguan/JVM堆模型.png)
 
-观察上面的堆模型我们
-
+观察上面的堆模型我们不难看出
 
 ## 有哪些垃圾收集器
 
 如果说收集算法是内存回收的方法论，那么垃圾收集器就是内存回收的具体实现。
 
+### serial
+
+### 
+
+### 常见的垃圾回收器的组合
+![常见的垃圾回收器的组合](https://raw.githubusercontent.com/qinguan1/qinguan1.github.io/main/docs/assets/img/qinguan/常见的垃圾回收器的组合.png)
