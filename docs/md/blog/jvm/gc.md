@@ -5,7 +5,6 @@
 
 > 故不积跬步，无以至千里；不积小流，无以成江海！🌻
 
-
 既然要进行垃圾回收，那么第一步就要识别垃圾，第二步就是清理垃圾。
 
 ## 如何识别垃圾对象
@@ -79,7 +78,6 @@ Parallel Scavenge收集器关注点是吞吐量（高效率的利用CPU）。CMS
 ![Parallel Scavenge收集器](https://raw.githubusercontent.com/qinguan1/qinguan1.github.io/main/docs/assets/img/qinguan/Parallel Scavenge收集器.png)
 
 Parallel Old收集器是Parallel Scavenge收集器的老年代版本。使用多线程和“标记-整理”算法。在注重吞吐量以及CPU资源的场合，都可以优先考虑 Parallel Scavenge收集器和Parallel Old收集器(JDK8默认的新生代和老年代收集器)。
-
 
 ### ParNew收集器(-XX:+UseParNewGC)
 ParNew收集器其实跟Parallel收集器很类似，区别主要在于它可以和CMS收集器配合使用。
