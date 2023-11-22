@@ -93,3 +93,5 @@ Selector 是Java NIO中的一个核心组件，也称为多路复用器，用于
 Selector 的作用就是配合一个线程来管理多个 channel，获取这些 channel 上发生的事件，这些 channel 工作在非阻塞模式下，不会让线程吊死在一个 channel 上。
 
 `适合连接数特别多，但流量低的场景（low traffic）`
+
+# 二、网络编程
