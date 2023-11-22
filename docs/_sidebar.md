@@ -10,7 +10,7 @@
     - [第6节：Jvm专题](/md/blog/jvm/gc.md)
   - 第2章：网络
 
-    - [第1节：nio入门](/md/blog/netty/nio/nio入门概念/nio入门概念.md)
+    - [第1节：nio入门](/md/blog/netty/nio/nio入门概念.md)
     - [第2节：负载均衡](/md/blog/network/2-负载均衡.md)
     - [第3节：同步异步相关](/md/blog/network/3-同步异步相关.md)
     - [第4节：配置窗体和侧边栏窗体的使用](/md/idea-plugin/2021-11-03-第二节：配置窗体和侧边栏窗体的使用.md)
