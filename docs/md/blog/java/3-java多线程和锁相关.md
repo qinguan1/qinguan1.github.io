@@ -1,7 +1,7 @@
 ## java多线程和锁相关
 
 作者：qinguan
-<br/>博客：[https://bugstack.cn](https://bugstack.cn)
+`<br/>`博客：[https://bugstack.cn](https://bugstack.cn)
 
 > 故不积跬步，无以至千里；不积小流，无以成江海！🌻
 
@@ -11,15 +11,25 @@
 
 进程可以看成程序执行的一个实例。进程是系统资源分配的独立实体，每个进程都拥有独立的地址空间。一个进程无法访问另一个进程的变量和数据结构，如果想让一个进程访问另一个进程的资源，需要使用进程间通信，比如管道，文件，套接字等。
 
+**进程之间的通信**：
+
+1、 同一台计算机内通讯称为：IPC
+
+2、不同计算机之间则需要通过网络，并遵守同样的协议，例如：HTTP
+
 #### 2.什么是线程？
 
 是操作系统能够进行运算调度的最小单位。它被包含在进程之中，是进程中的实际运作单位。一条线程指的是进程中一个单一顺序的控制流，一个进程中可以并发多个线程，每条线程并行执行不同的任务。
 
+进程是 `资源分配`的最小单位，线程是 `调度`的最小单位。
+
+一个进程之内可以分为多个线程，在windows中，进程是不活动的，只是作为线程的容器。
+
 #### 3.线程的实现方式?
 
->1. 继承Thread类
->2. 实现Runnable接口
->3. 使用Callable和Future
+> 1. 继承Thread类
+> 2. 实现Runnable接口
+> 3. 使用Callable和Future
 
 #### 4.**Thread 类中的start() 和 run() 方法有什么区别**?
 
@@ -382,7 +392,7 @@ public class XKDaemon {
 
 #### 26.设置线程上下文类加载器
 
-​获取线程上下文类加载器
+获取线程上下文类加载器
 
 ```java
 public ClassLoader getContextClassLoader() 
@@ -646,9 +656,9 @@ public class ThreadLocalExt extends ThreadLocal{
 
 该特性主要解决以下两个问题：
 
->1. 锁需要去识别获取锁的线程是否为当前占据锁的线程，如果是则再次成功获取。
+> 1. 锁需要去识别获取锁的线程是否为当前占据锁的线程，如果是则再次成功获取。
 
->2. 所得最终释放。线程重复n次是获取了锁，随后在第n次释放该锁后，其他线程能够>获取到该锁。
+> 2. 所得最终释放。线程重复n次是获取了锁，随后在第n次释放该锁后，其他线程能够>获取到该锁。
 
 #### 62.ReentrantLock默认锁？
 
@@ -975,17 +985,12 @@ shutdown只是将线程池的状态设置成shutdown状态，然后中断所有�
 配置线程池可以从以下几个方面考虑。
 
 - 任务是cpu密集型、IO密集型或者混合型
-
 - 任务优先级，高中低。
-
 - 任务时间执行长短。
-
 - 任务依赖性：是否依赖其他系统资源。
 
   - cpu密集型可以配置可能小的线程,比如 n + 1个线程。
-
   - io密集型可以配置较多的线程，如 2n个线程。
-
   - 混合型可以拆成io密集型任务和cpu密集型任务，
 
   如果两个任务执行时间相差大，否->分解后执行吞吐量将高于串行执行吞吐量。是->没必要分解。
@@ -1031,32 +1036,29 @@ corePoolSize 和maxPoolSize都被设置成我们设置的nThreads。
 
 工作流程：
 
->1. 当前线程少于corePoolSize,创建新线程执行任务。
+> 1. 当前线程少于corePoolSize,创建新线程执行任务。
 
->2. 当前运行线程等于corePoolSize,将任务加入LinkedBlockingQueue。
+> 2. 当前运行线程等于corePoolSize,将任务加入LinkedBlockingQueue。
 
->3. 线程执行完1中的任务，会循环反复从LinkedBlockingQueue获取任务来执行。
+> 3. 线程执行完1中的任务，会循环反复从LinkedBlockingQueue获取任务来执行。
 
 LinkedBlockingQueue作为线程池工作队列（默认容量Integer.MAX_VALUE)。因此可能会造成如下结果：
 
->1. 当线程数等于corePoolSize时，新任务将在队列中等待，因为线程池中的线程**不会超过**corePoolSize。
+> 1. 当线程数等于corePoolSize时，新任务将在队列中等待，因为线程池中的线程**不会超过**corePoolSize。
 
->2. **maxnumPoolSize等于说是一个无效参数**
+> 2. **maxnumPoolSize等于说是一个无效参数**
 
->3. **keepAliveTime等于说也是一个无效参数**
+> 3. **keepAliveTime等于说也是一个无效参数**
 
->4. 运行中的FixedThreadPool(未执行shundown或shundownNow))则不会调用拒绝策略。
-
+> 4. 运行中的FixedThreadPool(未执行shundown或shundownNow))则不会调用拒绝策略。
 
 ![线程池复用原理流程图](https://raw.githubusercontent.com/qinguan1/qinguan1.github.io/main/docs/assets/img/qinguan/线程池复用原理流程图.png)
 
-
-
->5. **由于任务可以不停的加到队列，当任务越来越多时很容易造成OOM**
+> 5. **由于任务可以不停的加到队列，当任务越来越多时很容易造成OOM**
 
 #### 99.SingleThreadExecutor
 
-是使用单个worker线程的Executor。 
+是使用单个worker线程的Executor。
 
 查看源码：
 
@@ -1101,8 +1103,5 @@ corePoolSize设置为0，maxmumPoolSize为Integer.MAX_VALUE。keepAliveTime为60
 参考：
 
 - 《Java多线程编程核心技术》
-
 - 《Java高并发编程详解》
-
 - 《Java 并发编程的艺术》
-
