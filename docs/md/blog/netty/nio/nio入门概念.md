@@ -119,8 +119,6 @@ Selector 的作用就是配合一个线程来管理多个 channel，获取这些
   - 有可读事件才去读取
   - 有可写事件才去写入（限于网络传输能力，Channel 未必时时可写，一旦 Channel 可写，会触发 Selector 的可写事件）
 
-
-
 ## 2.2 Selector
 
 好处：
